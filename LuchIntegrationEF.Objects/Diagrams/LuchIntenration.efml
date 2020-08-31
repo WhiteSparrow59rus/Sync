@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="LuchIntegrationEF.Objects.Diagrams" namespace="LuchIntegrationEF.Objects.Domain" p1:name="DataContextModel" p1:Guid="f321957f-9a77-4a48-bc51-9b7cf32137f1" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="$EnumTypes">
+    <EnumType Name="MeasuredResource" class="MeasuredResource" p1:Guid="031dff76-d876-4b77-a1cf-acc47c814c23">
+      <Member Name="Electricity" p1:Guid="342d2727-1795-4168-ad05-0f62a305224b" />
+      <Member Name="Water" p1:Guid="09a5bf4d-d93a-4989-ab2a-a0ab601ba4fc" />
+      <Member Name="HotWater" p1:Guid="9b3cbf42-ad8e-4f00-bf43-932ad33db22f" />
+      <Member Name="ColdWater" p1:Guid="d68c3461-44d6-414d-ad26-0363e9466f5b" />
+      <Member Name="Gas" p1:Guid="c27c88af-9863-4c98-b903-c6e6e0530d96" />
+      <Member Name="Heat" p1:Guid="33735a66-82d2-4513-bf4b-dee64e2682db" />
+      <Member Name="Impulse" p1:Guid="8543a272-b19e-4ece-80fd-2fbf75628cd5" />
+      <Member Name="Unknown" p1:Guid="32685efe-785d-4d70-a495-89d46c735b9b" />
+    </EnumType>
+    <EnumType Name="TypeСontractorRole" class="TypeСontractorRole" p1:Guid="294c109b-a1aa-4e69-8834-fa1be9b5522b">
+      <Member Name="Administration" Value="0" p1:Guid="e4cf0542-3402-4273-8ed7-7180ce1b90dc" />
+      <Member Name="Partner" Value="1" p1:Guid="2448bbae-be50-405b-8839-a43474fe4184" />
+      <Member Name="Client" Value="2" p1:Guid="689bb550-0d38-46ce-acc8-c2897e6418c4" />
+      <Member Name="Subscriber" Value="3" p1:Guid="41af0e26-1d92-4f79-a193-03492c4f1f55" />
+      <Member Name="RSO" Value="4" p1:Guid="8f3b419f-e2f4-4f49-9440-36d6984822ae" />
+      <Member Name="Unknown" Value="5" p1:Guid="a2cb2188-abe6-4ad0-8f52-cb1b5585142b" />
+    </EnumType>
+    <EnumType Name="DirectionCalc" class="DirectionCalc" p1:Guid="83c38db3-9882-4911-b885-6ce29ba09208">
+      <Member Name="Plus" p1:Guid="02cad8d8-9c76-457f-9f55-1116bde3b3fb" />
+      <Member Name="Minus" p1:Guid="02968b62-4160-4e62-b92f-666eb6d2e461" />
+      <Member Name="NotCalc" p1:Guid="19f153fd-e829-4d0c-aa1d-b7aef30bf7e6" />
+    </EnumType>
+    <EnumType Name="FileFormat" class="FileFormat" p1:Guid="9ce9b361-bc7c-417f-9b60-b8b899e9c723">
+      <Member Name="xlsx" p1:Guid="a95fe3fe-65c6-470d-951e-ed08722a5ecc" />
+      <Member Name="pdf" p1:Guid="9bd1e6a0-2cf1-458b-ace8-d3227ef12cd8" />
+    </EnumType>
+    <EnumType Name="ReportState" class="ReportState" p1:Guid="2294ed44-687d-41da-843c-c90007e18f6a">
+      <Member Name="Scheduled" p1:Guid="36213fc1-4206-4965-be47-ba78be4c1621" />
+      <Member Name="Run" p1:Guid="4188775a-e826-453b-a724-03d8a26a6c5d" />
+      <Member Name="Completed" p1:Guid="fc7359dd-d65e-40e2-9655-a06ff1fb6bd8" />
+      <Member Name="Failed" p1:Guid="b4208969-255b-4206-b32f-e343354b199f" />
+    </EnumType>
+  </class>
+  <class name="Territory" entity-set="Territories" table="`FIAS`" schema="public" p1:Guid="d98e4bdd-9cd0-4666-934b-9390a3202c12">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="ef566629-6502-4488-9538-d20481f72e3c">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="91ea52b8-60fd-4cf6-9387-cf1e9c1e98ad">
+      <column name="" />
+    </property>
+    <property name="Index" type="String" p1:ValidateRequired="true" p1:Guid="6f4fa6a7-5797-426f-9b65-d59803898aaa">
+      <column name="" />
+    </property>
+    <property name="Type" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="51982bfc-c2d3-4a87-ad74-c9fb9d3a7e6b">
+      <column name="" />
+    </property>
+    <property name="FiasId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c6b22f5e-e3ce-4774-ac69-8ba1bd500112">
+      <column name="" />
+    </property>
+    <property name="CountryId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="df3caf15-13d9-4b49-8154-a9f891d6cee9">
+      <column name="" />
+    </property>
+    <property name="RegionId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="711eaebe-d61c-44b9-ab67-9d8823104161">
+      <column name="" />
+    </property>
+    <property name="AOkrug" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8fc8d0ce-d4fd-4e12-ba94-e0cadcaf30fb">
+      <column name="" />
+    </property>
+    <property name="RayonId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d44d1780-1da3-4afb-9cde-97bdade56ea4">
+      <column name="" />
+    </property>
+    <property name="CityId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b2ef077a-5d62-4e19-9f0b-482ada62e13c">
+      <column name="" />
+    </property>
+    <property name="TownId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e49f0667-e3c2-4f83-b591-aa8aa8500827">
+      <column name="" />
+    </property>
+    <property name="MRayonId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="4239fc69-0eb8-4abd-92ef-33b6e0c4b624">
+      <column name="" />
+    </property>
+    <property name="StreetId" type="Guid" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="58caffa1-a533-4ffc-9464-e8d5f1254a45">
+      <column name="" />
+    </property>
+    <property name="AddressLevelId" type="Guid" p1:ValidateRequired="true" p1:Guid="92ab8893-c55c-47a7-82a6-ac28fadb40d6">
+      <column name="" not-null="False" />
+    </property>
+    <property name="AddressTypeId" type="Guid" p1:ValidateRequired="true" p1:Guid="a4ef6641-0e27-4cb6-b11b-0cb08b417c9a">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="DeviceModel" entity-set="DeviceModels" table="`DeviceModels`" schema="public" p1:Guid="77904869-d22b-467e-9fcf-381eb96028a6">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="46952c4d-449b-4826-8357-d0b6e484f712">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="0abb4f8a-b2e6-44a4-b7b7-f52603436ce3">
+      <column name="`Name`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="ShortName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cd8e9900-744f-49f3-9067-f821c82853bf">
+      <column name="`ShortName`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="SKU" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cdbc2ca4-323f-410f-8201-75caba350963">
+      <column name="`SKU`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="PulseInput" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="246d0702-f23b-4b95-98b2-330003c6cbb6">
+      <column name="`PulseInput`" not-null="False" sql-type="bool" p1:unicode="False" />
+    </property>
+    <property name="ImpulseCount" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d06bf391-8bc9-4858-982d-699cd7d4aaa6">
+      <column name="`ImpulseCount`" not-null="False" sql-type="int4" p1:unicode="False" />
+    </property>
+    <property name="MeasuredResource" type="LuchIntegrationEF.Objects.Domain.MeasuredResource" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="58b717f7-f8b8-4007-b9b3-127ba6d5e970">
+      <column name="`MeasuredResource`" not-null="False" sql-type="int4" p1:unicode="False" />
+    </property>
+    <property name="BackEndId" type="Int32" p1:ValidateRequired="true" p1:Guid="9a4aa732-d712-4402-a178-fd4de0462360">
+      <column name="`BackEndId`" not-null="True" sql-type="int2" p1:unicode="False" />
+    </property>
+    <property name="System" type="String" p1:ValidateRequired="true" p1:Guid="6f045726-06f1-46b7-b126-7b8e4862096b">
+      <column name="" />
+    </property>
+  </class>
+  <class name="DeviceType" entity-set="DeviceTypes" table="`DeviceTypes`" schema="public" p1:Guid="3df2c16f-18d1-4409-995c-e996f914bda3">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="46b38344-c678-4400-96ef-c74c5e9674af">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="121059be-a7bc-4aa2-a392-8a6da610b3f9">
+      <column name="`Name`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="MeasuredResource" type="LuchIntegrationEF.Objects.Domain.MeasuredResource" p1:ValidateRequired="true" p1:Guid="c2f99f48-acb3-4bba-bdbd-2211e8f9a04e">
+      <column name="`MeasuredResource`" not-null="True" sql-type="int4" p1:unicode="False" />
+    </property>
+    <property name="NameEng" type="String" p1:ValidateRequired="true" p1:Guid="88fee100-99ef-4e99-9cb6-d0c5b50907e4">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Facility" entity-set="Facilities" table="`Facilities`" schema="public" p1:Guid="c8e8c003-e370-49d7-8286-9a3f8bcc55b8">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="1e751e0f-f1fb-46d4-9bcd-a8e6002c71e2">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8103bc37-ce0e-4d2b-b002-a726271422ca">
+      <column name="`Name`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="AddressString" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="22f44598-7e2c-427b-970d-974ad80fe409">
+      <column name="`AddressString`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Room" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="47b00822-bda8-4b73-b8bf-7d64f932fd1b">
+      <column name="`Room`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Floor" type="Int16" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e3e5912f-66d8-4855-a673-17ec1033e566">
+      <column name="`Floor`" not-null="False" sql-type="int2" p1:unicode="False" />
+    </property>
+    <property name="Porch" type="Int16" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ec2f852c-95e3-4b31-96aa-8f9a90803652">
+      <column name="`Porch`" not-null="False" sql-type="int2" p1:unicode="False" />
+    </property>
+    <property name="Note" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="699c7ad4-ebb7-4cb7-ab93-9a39b6449957">
+      <column name="`Note`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatorId" type="Guid" p1:ValidateRequired="true" p1:Guid="3583c0bf-23c5-45ea-a7f9-97aa61cd3930">
+      <column name="" not-null="False" />
+    </property>
+    <property name="SubscriberId" type="Guid" p1:ValidateRequired="true" p1:Guid="f4cac53e-2473-42f0-9c30-4a81527096c0">
+      <column name="" not-null="False" />
+    </property>
+    <property name="TerritoryId" type="Guid" p1:ValidateRequired="true" p1:Guid="c0f69736-09da-410e-89f7-9e604f8b40fb">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="ParentId" type="Guid" p1:ValidateRequired="true" p1:Guid="5369715d-bd10-4e20-85e9-79ff12c43a63">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Device" entity-set="Devices" table="`Devices`" schema="public" p1:Guid="db24f50c-cb29-455a-8f4b-421bd40a4a60">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="4b6984bb-e6a6-49ec-aafc-e49779977f64">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="SerialNumber" type="String" p1:ValidateRequired="true" p1:Guid="ede3b951-f601-4830-bcc2-166bac5a9dd5">
+      <column name="`SerialNumber`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="InstallationDate" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="3801d368-e775-46e9-a755-5dff5fabf9cb">
+      <column name="`InstallationDate`" not-null="False" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="RemovalDate" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="fa85b79c-65ae-46aa-a0ee-8115e4f2d68b">
+      <column name="`RemovalDate`" not-null="False" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="ReleaseDate" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="0cf3570c-35a1-4d67-82fd-54dbb19fa810">
+      <column name="`ReleaseDate`" not-null="False" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="LastCalibrationDate" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e3da8a9d-8cdb-440a-9e2d-77311806fff1">
+      <column name="`LastCalibrationDate`" not-null="False" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="Coefficient" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1f9ebe05-b73d-4a37-864a-47119030fbfd">
+      <column name="`Coefficient`" not-null="False" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="InstallationLocation" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="821a3b63-3016-459f-bae3-9e2bcb6cebf6">
+      <column name="`InstallationLocation`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="State" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="27628052-57fb-4fa4-bb61-8f40af9de721">
+      <column name="`State`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="System" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="be646c95-5a84-4349-9037-b3b7a6e15f39">
+      <column name="`System`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="BackEndId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8c732fcb-2f0c-40d0-bf7f-ab54659ca31b">
+      <column name="" />
+    </property>
+    <property name="Manufacturer" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="411fee59-963c-401f-bc48-2b8b0b861b57">
+      <column name="" />
+    </property>
+    <property name="TimeStampSync" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7b232e36-1301-47a5-bfcd-bc6fae5acfb1">
+      <column name="" />
+    </property>
+    <property name="TimeStampCalc" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7ae4dec0-029b-4c34-b180-9e9f73ae7a4b">
+      <column name="" />
+    </property>
+    <property name="FacilityId" type="Guid" p1:ValidateRequired="true" p1:Guid="bab60f20-0d77-449e-b82f-4b26217ea54b">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="DeviceModelId" type="Guid" p1:ValidateRequired="true" p1:Guid="830905f1-6090-4739-af7b-0832f8c4ecbc">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="DeviceTypeId" type="Guid" p1:ValidateRequired="true" p1:Guid="ad8725f0-c91b-4973-868c-32c4f05226a7">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="СontractorId" type="Guid" p1:ValidateRequired="true" p1:Guid="94375c10-c4ec-4977-bc94-00ced263761f">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="InstantValue" entity-set="InstantValues" table="`InstantValues`" schema="public" p1:Guid="1177a7eb-98c4-4c64-8190-2e3dc6473b2d">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="19a478d8-42b7-4fa0-bf7e-85ae7709df38">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="2f439b23-ab41-4ec1-b10b-da0319dd67c9">
+      <column name="`TimeStamp`" not-null="True" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="Value" type="Decimal" p1:ValidateRequired="true" p1:Guid="6f6e5dfb-eaac-4c97-9774-4b367e689aa1">
+      <column name="`Value`" not-null="True" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="97cb09e1-5843-4039-a83f-20d0f92937f3">
+      <column name="" />
+    </property>
+    <property name="DeviceId" type="Guid" p1:ValidateRequired="true" p1:Guid="3a248980-a29a-4b3c-9dbe-03b1bc033bd0">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="UnitId" type="Guid" p1:ValidateRequired="true" p1:Guid="a55d178b-417e-4d8f-b93f-b3d057c02da7">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Unit" entity-set="Units" table="`Units`" schema="public" p1:Guid="af037d15-70b7-4094-80a0-66cb9c3e1dab">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="486d6384-599f-4c37-817b-0dc10a740d49">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="206ac7d0-b740-4f2e-adc5-f29088ed2bb5">
+      <column name="`Name`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="ShortName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="da88cb23-567c-4cee-b2e9-8e330d05637a">
+      <column name="`ShortName`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="ShortNameBackEnd" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b9e487c1-7212-4fc4-9439-4c046acf4cf7">
+      <column name="`ShortNameBackEnd`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="Calibration" entity-set="Calibrations" table="`Calibrations`" schema="public" p1:Guid="d89f117e-a986-41bb-ad19-efbc0037ff36">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="476db15c-6d0e-44c7-8a5e-c3f42320dda6">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="TimeStampEvent" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="1f455410-297a-4ff6-8d7d-162f9db65268">
+      <column name="`TimeStampEvent`" not-null="True" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="TimeStampInput" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="0c21ad3f-394c-4077-96cc-7f6c41b948d6">
+      <column name="`TimeStampInput`" not-null="True" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="InitialValue" type="Decimal" p1:ValidateRequired="true" p1:Guid="10158b2f-20aa-4e70-be46-c7f580befbf1">
+      <column name="`InitialValue`" not-null="True" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="InitialImpulse" type="Int32" p1:ValidateRequired="true" p1:Guid="79b8a0cd-bda2-494c-af93-06927854ebbf">
+      <column name="`InitialImpulse`" not-null="True" sql-type="int4" p1:unicode="False" />
+    </property>
+    <property name="ImpulseCoefficient" type="Decimal" p1:ValidateRequired="true" p1:Guid="c402007a-1fd7-4224-80f7-74dee9d3f039">
+      <column name="`ImpulseCoefficient`" not-null="True" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="ChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="4fe8ff64-49bc-42d8-8aae-a894876b559b">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="UnitId" type="Guid" p1:ValidateRequired="true" p1:Guid="429c10b2-6734-45c0-95d6-86511d6bb823">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Channel" entity-set="Channels" table="`Channels`" schema="public" p1:Guid="cdb87f04-2831-4295-a150-ef5c6523dc48">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="0ddf33ca-35ae-4d28-9d7f-c33ab8b526e9">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="DateStart" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="c19429a5-aeef-42a5-85f1-2613b421d372">
+      <column name="`DateStart`" not-null="False" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="DateFinish" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="14ac84b6-369b-4192-9d47-71f1f4ed50d7">
+      <column name="`DateFinish`" not-null="False" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="497260b2-976f-4112-ad61-34dd7973a0d3">
+      <column name="`Name`" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Logical" type="Boolean" p1:ValidateRequired="true" p1:Guid="b0d9fcc9-9417-4963-b148-fad8b2e54df5">
+      <column name="`Logical`" not-null="True" sql-type="bool" p1:unicode="False" />
+    </property>
+    <property name="Number" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1e7cdd3f-d469-48a3-8051-5905fe664e8f">
+      <column name="" />
+    </property>
+    <property name="BackEndId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ccde306f-1fa4-4a14-989f-ca1b94134dde">
+      <column name="" />
+    </property>
+    <property name="DeviceId" type="Guid" p1:ValidateRequired="true" p1:Guid="f045f849-b211-41db-819a-2cd8decc3628">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="PhysicalChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="e44df6a6-f826-4a40-b18b-2f87ae918c92">
+      <column name="" />
+    </property>
+    <property name="UnitId" type="Guid" p1:ValidateRequired="true" p1:Guid="39a39949-e498-49f4-bab3-c463025d8f2d">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Indication" entity-set="Indications" table="`Indications`" schema="public" p1:Guid="072ec26a-5560-437e-8bfc-5807f57db42d">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="3951efd2-cad9-4709-a408-cc455284c544">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="40b36b5f-d1df-4edf-b612-e174c9da7133">
+      <column name="`TimeStamp`" not-null="True" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="Value" type="Decimal" p1:ValidateRequired="true" p1:Guid="7cac4790-6967-412b-aa8a-06d8fa574af4">
+      <column name="`Value`" not-null="True" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="isReliable" type="Boolean" p1:ValidateRequired="true" p1:Guid="8a9a06c0-c8f9-45be-b965-b01df7d8c35e">
+      <column name="" />
+    </property>
+    <property name="ChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="5fd259f5-a300-4d49-8e73-f831a3282c55">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Consumption" entity-set="Consumptions" table="`Consumptions`" schema="public" p1:Guid="bf0fe8de-8be0-455f-adee-a9a33edc731a">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="636a3dd8-7d99-45de-9b45-c33a2c67bbbf">
+      <column name="`Id`" not-null="True" sql-type="uuid" p1:unicode="False" />
+    </id>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="1cc25818-430f-4bdb-bf33-ba955602fa7d">
+      <column name="`TimeStamp`" not-null="True" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="CalculationTimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="e2008a26-4d91-4a75-93a1-bb3f61eb33e5">
+      <column name="`CalculationTimeStamp`" not-null="True" sql-type="timestamptz" p1:unicode="False" />
+    </property>
+    <property name="Value" type="Decimal" p1:ValidateRequired="true" p1:Guid="aa6d5be8-4ceb-47ff-bf63-ed887dc4a617">
+      <column name="`Value`" not-null="True" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="ChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="8c76e4d3-7301-4309-8dda-7630d55b9bcc">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="IndicationFinishId" type="Guid" p1:ValidateRequired="true" p1:Guid="e2088e1e-87a9-46ca-9620-c6375aecc17a">
+      <column name="" />
+    </property>
+    <property name="IndicationStartId" type="Guid" p1:ValidateRequired="true" p1:Guid="2030b4b1-5910-4b4c-8690-df24b5d11a3c">
+      <column name="" />
+    </property>
+  </class>
+  <class name="AddressType" entity-set="AddressTypes" p1:Guid="0fd8b1c3-1047-4bd5-9a3f-749e35fda7b8">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="6565c712-d0a5-4426-8a35-ecdbc9fa2702">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="6c8a77e8-eeb5-41db-aeae-9df6ac5a96b6">
+      <column name="" />
+    </property>
+    <property name="Abrr" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5963f07c-5735-45a8-bb75-833c8b0977cf">
+      <column name="" />
+    </property>
+  </class>
+  <class name="AddressLevel" entity-set="AddressLevels" p1:Guid="807d3ab7-4bbf-4fc7-8367-759775cde23c">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="249f17c3-b67e-41aa-8259-40b8568593a4">
+      <column name="" />
+    </id>
+    <property name="Level" type="Int16" p1:ValidateRequired="true" p1:Guid="13a2634d-3658-4f70-aa0e-19eb2925ee54">
+      <column name="" />
+    </property>
+    <property name="Description" type="String" p1:ValidateRequired="true" p1:Guid="b4150670-c769-4716-b43f-79df9816b0a0">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Сontractor" entity-set="Counterparties" p1:Guid="991cac6d-dee6-46a7-84f7-4bae486d08ea">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="a995740a-27d7-4a29-97c3-48ef2b0f41b0">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="66c1f786-3a36-45e7-99a0-0cf6a58860a9">
+      <column name="" />
+    </property>
+    <property name="ShortName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d1afc920-5953-4052-9e26-b8ddb800201d">
+      <column name="" />
+    </property>
+    <property name="LegalAddress" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6ca17a0c-faea-44c7-a434-996cc9fbd4a4">
+      <column name="" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="44d20746-6ee1-40a4-bedf-611e9d497019">
+      <column name="" />
+    </property>
+    <property name="ContactInformation" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9b6ce75a-1495-4553-8183-31cfe357b046">
+      <column name="" />
+    </property>
+    <property name="OwnerId" type="Guid" p1:ValidateRequired="true" p1:Guid="cf31c862-bc67-4c8f-a922-1a5361b545a0">
+      <column name="" />
+    </property>
+  </class>
+  <class name="СontractorRole" entity-set="СontractorRoles" p1:Guid="47ac8fcb-e251-4978-adcb-b3372bb698f6">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="a34c5abe-4aec-495e-8cb0-6c24deb457c1">
+      <column name="" />
+    </id>
+    <property name="Type" type="LuchIntegrationEF.Objects.Domain.TypeСontractorRole" p1:ValidateRequired="true" p1:Guid="8ea30257-8ced-46e3-bbd6-d21e9b89a1c0">
+      <column name="" />
+    </property>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="2773cf04-a580-45df-8819-9e6a874076a5">
+      <column name="" />
+    </property>
+    <property name="NameEng" type="String" p1:ValidateRequired="true" p1:Guid="9b120c34-8aaa-45da-87e3-5f453e784d27">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Event" entity-set="Events" p1:Guid="24e9373a-360c-49bd-9761-b0bb77defe5c">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="da3a3401-bd73-49a1-a4d6-ef9048616082">
+      <column name="" />
+    </id>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="d9880372-53e9-483b-9ead-29e29aae9d41">
+      <column name="" />
+    </property>
+    <property name="TimeStampReceived" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="e02741fe-b6ea-407d-bb77-6b6a4268e51b">
+      <column name="" />
+    </property>
+    <property name="Info" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="24636695-eaa9-4ee5-b153-4be9f3ce5dd9">
+      <column name="" />
+    </property>
+    <property name="EventTypeId" type="Guid" p1:ValidateRequired="true" p1:Guid="d86ce4fd-d646-43cd-8db8-8661ca9a5020">
+      <column name="" />
+    </property>
+    <property name="DeviceId" type="Guid" p1:ValidateRequired="true" p1:Guid="823fda97-aeb0-447d-b25d-466b779f312c">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EventType" entity-set="EventTypes" p1:Guid="7065ddfa-9c22-4fa2-bf49-cb385ff198e5">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="79f1d0bd-0fb0-4524-a017-912103a353e0">
+      <column name="" />
+    </id>
+    <property name="Code" type="Int32" p1:ValidateRequired="true" p1:Guid="c87792a5-9ff4-44f5-b20a-4bd9b9618385">
+      <column name="" />
+    </property>
+    <property name="Description" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2120166b-b3b2-4a0f-9881-f44f754453bb">
+      <column name="" />
+    </property>
+    <property name="Level" type="Int16" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b8746614-d6eb-49de-b0db-d31460d7107d">
+      <column name="" />
+    </property>
+    <property name="System" type="String" p1:ValidateRequired="true" p1:Guid="af6f5d17-6ed8-4e06-a6b4-1798b6a421ef">
+      <column name="" />
+    </property>
+    <property name="ProtocolId" type="Guid" p1:ValidateRequired="true" p1:Guid="bcc54612-f311-42d9-a15d-31842d37bf3f">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="Protocol" entity-set="Protocols" p1:Guid="31dcf206-1a19-4879-998e-ee6a7d20922e">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="d5fd8ab5-87ea-4f01-9761-9f7a0256b023">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="9108cbcf-9f13-405c-964b-fea92a06c145">
+      <column name="" />
+    </property>
+  </class>
+  <class name="TimeZone" entity-set="TimeZones" p1:Guid="05642286-5fd4-48d2-9c42-d027bfd0afcf">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="ac67ff07-07ae-44d5-a601-db982f12f9eb">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="a6c9232e-f161-4723-a998-1d0b5b7f3983">
+      <column name="" />
+    </property>
+    <property name="OffsetSeconds" type="Int32" p1:ValidateRequired="true" p1:Guid="8411efd1-c0e8-4a71-8dd6-9eeee9a91838">
+      <column name="" />
+    </property>
+    <property name="OffsetUTC" type="String" p1:ValidateRequired="true" p1:Guid="b2996ab2-f69d-4c2c-9964-e2adbf57bafd">
+      <column name="" />
+    </property>
+    <property name="BackEndId" type="Int32" p1:ValidateRequired="true" p1:Guid="43440629-9ba9-4d34-85f5-25281669565d">
+      <column name="" />
+    </property>
+    <property name="System" type="String" p1:ValidateRequired="true" p1:Guid="0ddebdbd-d848-4966-9f53-43eb4fe0b62a">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Balance" entity-set="Balances" p1:Guid="756a8af9-8d34-46a2-b999-28fcf48fbd07">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="b0e0e40a-2492-40ad-b558-409af458a673">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="ee63fd16-9d68-42d3-b69d-b45496851ca2">
+      <column name="" />
+    </property>
+    <property name="PermissibleUnbalance" type="Int32" p1:ValidateRequired="true" p1:Guid="05fb98ac-264f-44e2-b41c-0d76ff10dc3b">
+      <column name="" />
+    </property>
+    <property name="TimeStampCreate" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="98e03a7e-5936-4af2-b540-8bb3fba8b2ca">
+      <column name="" />
+    </property>
+    <property name="FacilityId" type="Guid" p1:ValidateRequired="true" p1:Guid="81a3e883-5df3-4a7b-8f4c-1825c3d4c904">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="DeviceTypeId" type="Guid" p1:ValidateRequired="true" p1:Guid="305df968-8ff0-4391-a7cf-bced63495a05">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="CreatorId" type="Guid" p1:ValidateRequired="true" p1:Guid="967a0f86-1dfd-41d9-8ab5-7566555ff396">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="BalanceChannel" entity-set="BalanceChannels" p1:Guid="5385b4e0-f0d2-40f9-a8fc-02fcc707c031">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="2d88d88e-4f74-4379-8d08-bd9b1badfc56">
+      <column name="" />
+    </id>
+    <property name="Actual" type="Boolean" p1:ValidateRequired="true" p1:Guid="526944d6-400a-416b-b79f-e584c445aa80">
+      <column name="" />
+    </property>
+    <property name="Direction" type="LuchIntegrationEF.Objects.Domain.DirectionCalc" p1:ValidateRequired="true" p1:Guid="b40cc283-81d5-4d49-92b2-93053a360db6">
+      <column name="" />
+    </property>
+    <property name="BalanceId" type="Guid" p1:ValidateRequired="true" p1:Guid="9d499949-41d8-4eb5-8f0c-58e93013683b">
+      <column name="" not-null="False" />
+    </property>
+    <property name="ChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="b74dd785-6df3-4c2e-a0df-38e44d2c53d8">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="BalanceHistory" entity-set="BalanceHistories" p1:Guid="22e720f3-8f80-41a5-b38f-cd8f32c2dd97">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="1ef8ed07-9444-42d2-b339-8f4b6a0ee9ca">
+      <column name="" />
+    </id>
+    <property name="Supply" type="Decimal" p1:ValidateRequired="true" p1:Guid="7763ad73-d28e-4f3c-b5fc-be410da0cffe">
+      <column name="" />
+    </property>
+    <property name="Consumption" type="Decimal" p1:ValidateRequired="true" p1:Guid="1efcfa2a-fdd4-4fcf-93ac-eb3b853b345d">
+      <column name="" />
+    </property>
+    <property name="TimeStampStart" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="fa7f6db9-b1a3-4cbf-bb19-37ada7424a33">
+      <column name="" />
+    </property>
+    <property name="TimeStampFinish" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="722ec492-3bc0-4ea3-b828-9ae667fd40d4">
+      <column name="" />
+    </property>
+    <property name="TimeStampCalc" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="a27cd5d0-7480-47bf-a096-8698d7abb808">
+      <column name="" />
+    </property>
+    <property name="BalanceId" type="Guid" p1:ValidateRequired="true" p1:Guid="328b82c9-72f9-4538-b8c0-84d67b613f3d">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="BalanceHistoryDetailed" entity-set="BalanceHistoryDetaileds" p1:Guid="b13f03a6-f67d-4ce0-824b-cf1ebd3cd358">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="ed50263e-e80c-4be2-ac6c-e4daeb22bfc0">
+      <column name="" />
+    </id>
+    <property name="Direction" type="LuchIntegrationEF.Objects.Domain.DirectionCalc" p1:ValidateRequired="true" p1:Guid="506efb15-1960-43f4-adbb-110582a69ae5">
+      <column name="" />
+    </property>
+    <property name="Consumption" type="Decimal" p1:ValidateRequired="true" p1:Guid="192ee706-bfc5-4014-b229-280587ea926a">
+      <column name="" />
+    </property>
+    <property name="TimeStampStart" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="12c9f1d9-d343-4b60-8fa3-145b6f4eb747">
+      <column name="" />
+    </property>
+    <property name="TimeStampFinish" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="a54d45f6-ac3f-4f09-b1c9-f61dbb5dd3ec">
+      <column name="" />
+    </property>
+    <property name="TimeStampCalc" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="5e2d030c-013f-45a5-ae16-7680e1934178">
+      <column name="" />
+    </property>
+    <property name="BalanceChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="2e017d3b-f54c-4407-b00c-3358811113fe">
+      <column name="" not-null="False" />
+    </property>
+    <property name="BalanceHistoryId" type="Guid" p1:ValidateRequired="true" p1:Guid="06420fd3-b1ec-4cce-b1c8-10381c4a42e7">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="ReportType" entity-set="ReportTypes" p1:Guid="3c2228dd-0a0e-46ba-b87d-e90d93aa1d15">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="180455cd-0350-4322-b82d-f4b6659e155a">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:ValidateRequired="true" p1:Guid="3bb68abb-6a71-4304-a12d-bbf163484962">
+      <column name="" />
+    </property>
+  </class>
+  <class name="ReportVersion" entity-set="ReportVersions" p1:Guid="fd8e9c16-c441-4631-8efa-a97e0fe42768">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="ac5744c7-e175-45f5-832d-3f99f4d651e5">
+      <column name="" />
+    </id>
+    <property name="Path" type="String" p1:ValidateRequired="true" p1:Guid="0ac0e125-0a1e-434e-8564-c70273f29059">
+      <column name="" />
+    </property>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="dde57d77-f10f-4014-9c9c-1430834997dd">
+      <column name="" />
+    </property>
+    <property name="Version" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cc36349f-de0f-4946-a9e1-c5a08dcb3d24">
+      <column name="" />
+    </property>
+    <property name="Actual" type="Boolean" p1:ValidateRequired="true" p1:Guid="badd3266-1cdc-47d1-825d-3a4610472348">
+      <column name="" />
+    </property>
+    <property name="ReportTypeId" type="Guid" p1:ValidateRequired="true" p1:Guid="f175d189-4d5e-4e41-bf39-ee4f9a8e931a">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="Report" entity-set="Reports" p1:Guid="e0bdf5a6-9d9e-407c-9ad7-5e758d657096">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="08f245f1-e2a6-4f91-bd2c-7b70bd714bf0">
+      <column name="" />
+    </id>
+    <property name="TimeStampCreate" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="405157b0-cc83-4832-8161-cf5ca38b7603">
+      <column name="" />
+    </property>
+    <property name="TimeStampComplete" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="062cfd47-e390-4605-8a33-274eb2dac11a">
+      <column name="" />
+    </property>
+    <property name="FileFormat" type="LuchIntegrationEF.Objects.Domain.FileFormat" p1:ValidateRequired="true" p1:Guid="6048ad83-f4a5-4de0-82e3-e83b156402d2">
+      <column name="" />
+    </property>
+    <property name="State" type="LuchIntegrationEF.Objects.Domain.ReportState" p1:ValidateRequired="true" p1:Guid="e6decb59-b97b-43a1-870c-65573a3d5307">
+      <column name="" />
+    </property>
+    <property name="Property" type="String" p1:ValidateRequired="true" p1:Guid="e8a56370-1159-4595-a1d5-15c07289550d">
+      <column name="" />
+    </property>
+    <property name="Private" type="Boolean" p1:ValidateRequired="true" p1:Guid="30de21eb-9583-4e75-9ae5-c3cee091b414">
+      <column name="" />
+    </property>
+    <property name="ReportVersionId" type="Guid" p1:ValidateRequired="true" p1:Guid="038d8ec5-98bc-4a13-a82c-8a8d27a04765">
+      <column name="" not-null="False" />
+    </property>
+    <property name="CreatorId" type="Guid" p1:ValidateRequired="true" p1:Guid="98475867-4ff9-4e85-a8fb-55e2f0361b35">
+      <column name="" not-null="False" />
+    </property>
+    <property name="ReportFileId" type="Guid" p1:ValidateRequired="true" p1:Guid="4a86cc67-2552-4673-81c1-4e8ce999ba8d">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="ReportFile" entity-set="ReportFiles" p1:Guid="5398bc38-d4de-4fa8-a7b3-db0eb20aaf65">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="f9d17e6c-8080-48f0-9c61-9a7d5fa4c70b">
+      <column name="" />
+    </id>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ea06b2b8-8516-4ae0-988f-2c8328a8e3c1">
+      <column name="" />
+    </property>
+    <property name="Path" type="String" p1:ValidateRequired="true" p1:Guid="ed7e032f-cf3e-4e3d-8dc0-89318178bbea">
+      <column name="" />
+    </property>
+  </class>
+  <class name="PowerProfile" entity-set="PowerProfiles" p1:Guid="f9eba3d5-475e-498b-8cae-c43f0841d3b0">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="06295c80-c843-40f7-90fb-4fce817df400">
+      <column name="" />
+    </id>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="8c0f056d-83d0-4616-86a5-8afb09a76dc7">
+      <column name="" />
+    </property>
+    <property name="Value" type="Decimal" p1:ValidateRequired="true" p1:Guid="d69b1b46-5b22-4f29-91f2-9bc01c320e1f">
+      <column name="" />
+    </property>
+  </class>
+  <class name="Command" entity-set="Commands" p1:Guid="4eedae5f-f7ed-46ca-a2f1-199a9e073b0c">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="07a7dfbc-7a40-46b1-ae8e-4406fa16188b">
+      <column name="" />
+    </id>
+    <property name="TimeStamp" type="DateTimeOffset" p1:ValidateRequired="true" p1:Guid="d0f90b5e-ecef-4d4e-ad88-048ac2da1136">
+      <column name="" />
+    </property>
+    <property name="Executed" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e34ff47d-d686-48a0-a9a9-2b3e8415d248">
+      <column name="" />
+    </property>
+    <property name="DeviceId" type="Guid" p1:ValidateRequired="true" p1:Guid="d16b0531-42ad-4944-a6e4-416223906abf">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+    <property name="CommandTypeId" type="Guid" p1:ValidateRequired="true" p1:Guid="ffe03953-ea80-4381-99f8-7bda4130c268">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <class name="Resource" entity-set="Resources" p1:Guid="c601ba6d-a1d1-4ee3-87a0-e2ed00e998ea">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="ec1214df-5073-441e-9202-b785cbfe0035">
+      <column name="" />
+    </id>
+    <property name="PersonalAccount" type="String" p1:ValidateRequired="true" p1:Guid="7fcece26-2a14-4d7b-bfaf-daf6bbdb0cbc">
+      <column name="" />
+    </property>
+    <property name="OwnerName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="0177c561-42ec-4e9b-a721-85bfd2169722">
+      <column name="" />
+    </property>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="f0466d03-d6b2-45b7-a0eb-a628bd08f785">
+      <column name="" />
+    </property>
+    <property name="ChannelId" type="Guid" p1:ValidateRequired="true" p1:Guid="2402dfc1-fcec-4b07-b280-b44985cc2a69">
+      <column name="" not-null="False" sql-type="uuid" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="CommandType" entity-set="CommandTypes" p1:Guid="8a962bfa-a02b-4196-8028-0327cf7dd1b9">
+    <id name="Id" type="Guid" p1:ValidateRequired="true" p1:Guid="b19efda2-244c-41aa-873d-ab74306e76bc">
+      <column name="" />
+    </id>
+    <property name="Description" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5a2653cd-33b2-46ee-97dd-6a53c1a0409b">
+      <column name="" />
+    </property>
+    <property name="Command" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d3be0108-6ce8-405f-b98b-0e7f69ca905a">
+      <column name="" />
+    </property>
+    <property name="Code" type="Byte[]" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="bf16d41b-8517-4f60-b1b2-2733bb589f2d">
+      <column name="" />
+    </property>
+    <property name="Parameters" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="adbf9960-f94e-49bb-b167-ebfeda230e65">
+      <column name="" />
+    </property>
+    <property name="ReportId" type="Guid" p1:ValidateRequired="true" p1:Guid="bb19f48d-bb54-472e-964c-db785c3917b8">
+      <column name="" not-null="False" />
+    </property>
+    <property name="ProtocolId" type="Guid" p1:ValidateRequired="true" p1:Guid="76f1449c-a1ec-4262-87bc-fba5f8c10e9a">
+      <column name="" not-null="False" />
+    </property>
+  </class>
+  <associations>
+    <association name="Facility_Facility" cardinality="OneToMany" on-delete="Restrict" p1:Guid="e63722f9-f5c0-4d59-8487-bf78d1661e5b">
+      <end1 multiplicity="One" name="Parent" class="Facility" relation-class="Facility" constrained="True" lazy="False" p1:Guid="76a3872c-ce41-47a7-bcfe-fb7f2941d6e0">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Childs" class="Facility" relation-class="Facility" lazy="False" p1:Guid="10d253e5-584d-4eab-abb7-ca8116d678b2">
+        <property name="ParentId" />
+      </end2>
+    </association>
+    <association name="Indication_Consumption" cardinality="OneToMany" p1:Guid="90f6d210-77de-43e5-9b51-f6ebd354dd67">
+      <end1 multiplicity="One" name="IndicationStart" class="Consumption" relation-class="Indication" constrained="True" lazy="False" p1:Guid="ccbc27da-d955-4fc6-95b6-7a7fea8a7958">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Consumptions" class="Indication" relation-class="Consumption" generate="False" lazy="False" p1:Guid="68609419-ae86-48d0-a851-10842e31cc3c">
+        <property name="IndicationStartId" />
+      </end2>
+    </association>
+    <association name="Indication_Consumption1" cardinality="OneToMany" p1:Guid="8470a9a3-a1f3-44aa-a031-a160d89ca299">
+      <end1 multiplicity="One" name="IndicationFinish" class="Consumption" relation-class="Indication" constrained="True" lazy="False" p1:Guid="519a652b-8fcc-4614-bb50-292c7775a200">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Consumptions1" class="Indication" relation-class="Consumption" generate="False" lazy="False" p1:Guid="94d2b01f-73da-4fad-803a-3e2b58e9fe33">
+        <property name="IndicationFinishId" />
+      </end2>
+    </association>
+    <association name="СontractorRole_Сontractor" cardinality="OneToMany" p1:Guid="5d915600-c226-45b6-b165-980a975b7e0d">
+      <end1 multiplicity="One" name="СontractorRole" class="Сontractor" relation-class="СontractorRole" constrained="True" lazy="False" p1:Guid="e2a6f12f-db9a-44e6-bcdf-70541cbdee37">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Counterparties" class="СontractorRole" relation-class="Сontractor" generate="False" lazy="False" p1:Guid="e1f226d9-57eb-4a6b-af4b-5c1724218c57">
+        <property name="Id" />
+      </end2>
+    </association>
+    <association name="Protocol_Device" cardinality="OneToMany" p1:Guid="72247443-0612-43a7-9e5b-d42a71811bb6">
+      <end1 multiplicity="One" name="Protocol" class="Device" relation-class="Protocol" constrained="True" lazy="False" p1:Guid="49d940f3-1954-4bf8-b996-b015731dac25">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Devices" class="Protocol" relation-class="Device" generate="False" lazy="False" p1:Guid="d8016c46-5f52-4638-bdca-a30cc7100ee5">
+        <property name="Id" />
+      </end2>
+    </association>
+    <association name="EventType_Event" cardinality="OneToMany" p1:Guid="d85c2d37-a2a0-4dd4-a418-5a0bde832139">
+      <end1 multiplicity="One" name="EventType" class="Event" relation-class="EventType" constrained="True" lazy="False" p1:Guid="d2d859c5-55df-4a9b-95bf-f52e96e9a4b9">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Events" class="EventType" relation-class="Event" generate="False" lazy="False" p1:Guid="b0f73d2b-d14d-48d9-93d9-ab16d20f1e28">
+        <property name="EventTypeId" />
+      </end2>
+    </association>
+    <association name="Сontractor_Сontractor" cardinality="OneToMany" p1:Guid="d87dfa4e-2ada-47dc-8f04-d0e4575d69f9">
+      <end1 multiplicity="One" name="Owner" class="Сontractor" relation-class="Сontractor" constrained="True" lazy="False" p1:Guid="1e7dc534-7a74-4c66-9b84-3a4aa645e5f1">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Children" class="Сontractor" relation-class="Сontractor" lazy="False" p1:Guid="ec284170-18ce-4132-a941-f22b71067fab">
+        <property name="OwnerId" />
+      </end2>
+    </association>
+    <association name="Channel_PowerProfile" cardinality="OneToMany" p1:Guid="546cd157-a7a4-4b36-9c4e-611bd7c11454">
+      <end1 multiplicity="One" name="Channel" class="PowerProfile" relation-class="Channel" constrained="True" lazy="False" p1:Guid="b106e66e-68e1-4576-8110-9956b01bbc30">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="PowerProfiles" class="Channel" relation-class="PowerProfile" generate="False" lazy="False" p1:Guid="4a5dd9ba-8f7b-4780-95ea-fb0cc4c36fbd">
+        <property name="Id" />
+      </end2>
+    </association>
+    <association name="Channel_Channel" cardinality="OneToMany" p1:Guid="f3820885-be87-4c1b-a1f5-0422c8e65ceb">
+      <end1 multiplicity="One" name="PhysicalChannel" class="Channel" relation-class="Channel" constrained="True" lazy="False" p1:Guid="1696403c-41b3-43a1-9feb-23d0a7fc09e8">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Channels" class="Channel" relation-class="Channel" generate="False" lazy="False" p1:Guid="03fd9e1c-aeaf-495e-b06f-9b61cb5e2c22">
+        <property name="PhysicalChannelId" />
+      </end2>
+    </association>
+    <association name="BalanceChannel_BalanceHistoryDetailed" cardinality="OneToMany" p1:Guid="9724d00c-8ca9-4136-ab97-e494e67093e0">
+      <end1 multiplicity="One" name="BalanceChannel" class="BalanceHistoryDetailed" relation-class="BalanceChannel" constrained="True" lazy="False" p1:Guid="ad7dfed8-c22e-4696-8869-15ec1b053486">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="BalanceHistoryDetaileds" class="BalanceChannel" relation-class="BalanceHistoryDetailed" generate="False" lazy="False" p1:Guid="c0f86dad-7ad1-4a61-8a6f-d795d533af03">
+        <property name="BalanceChannelId" />
+      </end2>
+    </association>
+    <association name="BalanceHistory_BalanceHistoryDetailed" cardinality="OneToMany" p1:Guid="26c6ee9e-53a0-4919-859a-05efd33ec7b1">
+      <end1 multiplicity="One" name="BalanceHistory" class="BalanceHistoryDetailed" relation-class="BalanceHistory" constrained="True" lazy="False" p1:Guid="3dca9f70-b2e3-44c0-9f99-f03b0752e5da">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="BalanceHistoryDetaileds" class="BalanceHistory" relation-class="BalanceHistoryDetailed" lazy="False" p1:Guid="7f8f14a2-7240-4df9-8ca7-3b2be4b56b1e">
+        <property name="BalanceHistoryId" />
+      </end2>
+    </association>
+    <association name="Balance_BalanceHistory" cardinality="OneToMany" p1:Guid="e589cacf-9176-4f33-980c-c8bd0f1eddfa">
+      <end1 multiplicity="One" name="Balance" class="BalanceHistory" relation-class="Balance" constrained="True" lazy="False" p1:Guid="43099180-48d9-490e-9cd5-706397e31a05">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="BalanceHistories" class="Balance" relation-class="BalanceHistory" lazy="False" p1:Guid="80f4e4ab-0b71-4a5c-946e-e99a419ee523">
+        <property name="BalanceId" />
+      </end2>
+    </association>
+    <association name="Balance_BalanceChannel" cardinality="OneToMany" p1:Guid="628f5f98-0608-455a-bd3a-1ec6f45eeba9">
+      <end1 multiplicity="One" name="Balance" class="BalanceChannel" relation-class="Balance" constrained="True" lazy="False" p1:Guid="cd31c0b5-95c4-4f38-9c74-2f8efd014dd0">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="BalanceChannels" class="Balance" relation-class="BalanceChannel" lazy="False" p1:Guid="a2294e6c-7ab9-4fc2-b703-29f4b9c473af">
+        <property name="BalanceId" />
+      </end2>
+    </association>
+    <association name="Channel_BalanceChannel" cardinality="OneToMany" p1:Guid="eaa3b7a2-725f-4532-a21f-8669ca39a41d">
+      <end1 multiplicity="One" name="Channel" class="BalanceChannel" relation-class="Channel" constrained="True" lazy="False" p1:Guid="c02de6af-6bf9-4de7-9845-8bab3e5de7f0">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="BalanceChannels" class="Channel" relation-class="BalanceChannel" generate="False" lazy="False" p1:Guid="91775d7d-f180-404b-84f5-57819efadfd4">
+        <property name="ChannelId" />
+      </end2>
+    </association>
+    <association name="Сontractor_Facility" cardinality="OneToMany" p1:Guid="49eff3eb-ca46-439b-b156-6652214d6691">
+      <end1 multiplicity="One" name="Creator" class="Facility" relation-class="Сontractor" constrained="True" lazy="False" p1:Guid="6841e2af-5f4c-4ca8-9526-800816c6170f">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Facilities" class="Сontractor" relation-class="Facility" lazy="False" p1:Guid="acb05d0c-05db-4753-9d27-590c17ba3e90">
+        <property name="CreatorId" />
+      </end2>
+    </association>
+    <association name="Сontractor_Facility1" cardinality="OneToMany" p1:Guid="4065b51c-2b6e-4585-9f4d-289081c0ee11">
+      <end1 multiplicity="One" name="Subscriber" class="Facility" relation-class="Сontractor" constrained="True" lazy="False" p1:Guid="79c2acda-1dbb-4a07-a328-158a3a50e4fc">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Facilities1" class="Сontractor" relation-class="Facility" generate="False" lazy="False" p1:Guid="047721e1-7c39-4136-a283-8d33ceafe671">
+        <property name="SubscriberId" />
+      </end2>
+    </association>
+    <association name="Facility_Balance" cardinality="OneToMany" p1:Guid="f2ac2102-3865-4d98-a133-7735e562a74a">
+      <end1 multiplicity="One" name="Facility" class="Balance" relation-class="Facility" constrained="True" lazy="False" p1:Guid="9735602c-f661-4d76-9d6c-cd7d74efd666">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Balances" class="Facility" relation-class="Balance" generate="False" lazy="False" p1:Guid="5a83834f-7e20-4b7e-b49d-2e7b614283dd">
+        <property name="FacilityId" />
+      </end2>
+    </association>
+    <association name="DeviceType_Balance" cardinality="OneToMany" p1:Guid="73206aaa-4bc5-486c-af9a-90414a85c25f">
+      <end1 multiplicity="One" name="DeviceType" class="Balance" relation-class="DeviceType" constrained="True" lazy="False" p1:Guid="304cedd7-ed4e-42c6-91cc-ef35eaae16e9">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Balances" class="DeviceType" relation-class="Balance" generate="False" lazy="False" p1:Guid="2316c273-0d0b-4fda-b66d-2ffe1cea9754">
+        <property name="DeviceTypeId" />
+      </end2>
+    </association>
+    <association name="Сontractor_Balance" cardinality="OneToMany" p1:Guid="66e4adf7-2c7b-4cf6-815d-845b4b142751">
+      <end1 multiplicity="One" name="Creator" class="Balance" relation-class="Сontractor" constrained="True" lazy="False" p1:Guid="7f7214f7-21a2-4ef0-bf30-88f2e94845c5">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Balances" class="Сontractor" relation-class="Balance" generate="False" lazy="False" p1:Guid="b320c5e0-42f2-4694-9f56-a18ad793fe02">
+        <property name="CreatorId" />
+      </end2>
+    </association>
+    <association name="AddressLevel_Territory" cardinality="OneToMany" p1:Guid="446ece1d-ff02-49f2-b3d6-a9b5a67f26b4">
+      <end1 multiplicity="One" name="AddressLevel" class="Territory" relation-class="AddressLevel" constrained="True" lazy="False" p1:Guid="a6da2f5f-5f4a-4251-81dc-ecba64e332aa">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Territories" class="AddressLevel" relation-class="Territory" generate="False" lazy="False" p1:Guid="92ba2d0a-3d00-450a-b96b-d784f9d5da71">
+        <property name="AddressLevelId" />
+      </end2>
+    </association>
+    <association name="Territory_Facility" cardinality="OneToMany" p1:Guid="0d55b689-096a-4eba-9e65-fade605146ff">
+      <end1 multiplicity="One" name="Territory" class="Facility" relation-class="Territory" constrained="True" lazy="False" p1:Guid="0ba781ac-0fe0-44cc-a922-eafab100b015">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Facilities" class="Territory" relation-class="Facility" generate="False" lazy="False" p1:Guid="08a2c279-85ef-425c-aeda-58fc2e6c5abf">
+        <property name="TerritoryId" />
+      </end2>
+    </association>
+    <association name="AddressType_Territory" cardinality="OneToMany" p1:Guid="07357fd4-fdfd-47ec-9e42-c0a824bed414">
+      <end1 multiplicity="One" name="AddressType" class="Territory" relation-class="AddressType" constrained="True" lazy="False" p1:Guid="15e0154c-85ce-4cfe-844b-48726e781a83">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Territories" class="AddressType" relation-class="Territory" generate="False" lazy="False" p1:Guid="d845c998-1695-4691-af86-c8c49ca89ffa">
+        <property name="AddressTypeId" />
+      </end2>
+    </association>
+    <association name="Facility_Device" cardinality="OneToMany" p1:Guid="01f2dd3e-afb5-4878-9f34-e1acd0cb9a00">
+      <end1 multiplicity="One" name="Facility" class="Device" relation-class="Facility" constrained="True" lazy="False" p1:Guid="66666c29-73c7-484b-b4aa-c98b0ea246c3">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Devices" class="Facility" relation-class="Device" generate="False" lazy="False" p1:Guid="6365a5c9-4f9d-472c-b3b3-6849440a73ec">
+        <property name="FacilityId" />
+      </end2>
+    </association>
+    <association name="DeviceModel_Device" cardinality="OneToMany" p1:Guid="06e0ae2f-6b89-4cb0-a360-0cb273efc1ef">
+      <end1 multiplicity="One" name="DeviceModel" class="Device" relation-class="DeviceModel" constrained="True" lazy="False" p1:Guid="120aea38-acf6-4461-a046-4e8e82659ed9">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Devices" class="DeviceModel" relation-class="Device" generate="False" lazy="False" p1:Guid="70984a6d-e9f2-4d36-88ee-0ea341a89a04">
+        <property name="DeviceModelId" />
+      </end2>
+    </association>
+    <association name="DeviceType_Device" cardinality="OneToMany" p1:Guid="ec10a119-7cf3-4be6-8c41-a0be8745f22f">
+      <end1 multiplicity="One" name="DeviceType" class="Device" relation-class="DeviceType" constrained="True" lazy="False" p1:Guid="2c5e34b0-b8d6-4208-99b8-4de0df180490">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Devices" class="DeviceType" relation-class="Device" generate="False" lazy="False" p1:Guid="d01b7f64-a283-40b7-af18-4377ce051e73">
+        <property name="DeviceTypeId" />
+      </end2>
+    </association>
+    <association name="Сontractor_Device" cardinality="OneToMany" p1:Guid="5c0b60d0-2336-44df-9299-3b7d92ae646f">
+      <end1 multiplicity="One" name="Сontractor" class="Device" relation-class="Сontractor" constrained="True" lazy="False" p1:Guid="ff99bcb5-d2e2-429d-8ad7-a9952639ddc6">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Devices" class="Сontractor" relation-class="Device" generate="False" lazy="False" p1:Guid="90b67bc7-d4d4-46dc-88f8-b6000717b89a">
+        <property name="СontractorId" />
+      </end2>
+    </association>
+    <association name="Protocol_CommandType" cardinality="OneToMany" p1:Guid="2db01ead-f44f-4dd5-8626-d7bd00ba58e9">
+      <end1 multiplicity="One" name="Protocol" class="CommandType" relation-class="Protocol" constrained="True" lazy="False" p1:Guid="ead024b9-bc3c-4085-a7f5-399a4937f23d">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="CommandTypes" class="Protocol" relation-class="CommandType" lazy="False" p1:Guid="0a245d1e-929d-40e7-8785-51dc52e33eb6">
+        <property name="ProtocolId" />
+      </end2>
+    </association>
+    <association name="Protocol_EventType" cardinality="OneToMany" p1:Guid="a3b045f0-e22f-4361-b495-e7296ed656ff">
+      <end1 multiplicity="One" name="Protocol" class="EventType" relation-class="Protocol" constrained="True" lazy="False" p1:Guid="77596269-ac83-4d72-8cde-066eee092e72">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EventTypes" class="Protocol" relation-class="EventType" lazy="False" p1:Guid="49bc5f41-f58e-44fe-b8b1-455f2d254504">
+        <property name="ProtocolId" />
+      </end2>
+    </association>
+    <association name="Device_Event" cardinality="OneToMany" p1:Guid="ab76b414-7ebf-45d6-8822-e6b9bebd1ce6">
+      <end1 multiplicity="One" name="Device" class="Event" relation-class="Device" constrained="True" lazy="False" p1:Guid="5ee32d5b-5393-4b65-940d-2e14730d782d">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Events" class="Device" relation-class="Event" lazy="False" p1:Guid="be280d0a-a731-41a7-bf8d-9bc73471a7e8">
+        <property name="DeviceId" />
+      </end2>
+    </association>
+    <association name="Device_Command" cardinality="OneToMany" p1:Guid="4f191d9e-61fe-42be-ba73-87cbbdce95df">
+      <end1 multiplicity="One" name="Device" class="Command" relation-class="Device" constrained="True" lazy="False" p1:Guid="e13a6d42-76cf-42c1-89fb-ce25b7188b61">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Commands" class="Device" relation-class="Command" lazy="False" p1:Guid="df5932c1-3be5-4b7f-9d27-557b65963c0c">
+        <property name="DeviceId" />
+      </end2>
+    </association>
+    <association name="CommandType_Command" cardinality="OneToMany" p1:Guid="bd52a402-d79f-41ad-8315-e9cc4b604fee">
+      <end1 multiplicity="One" name="CommandType" class="Command" relation-class="CommandType" constrained="True" lazy="False" p1:Guid="eebcea17-3974-42fa-b413-96631f80edb7">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Commands" class="CommandType" relation-class="Command" generate="False" lazy="False" p1:Guid="d4ca5b79-8d4e-4e69-8c5b-c58ddafdae68">
+        <property name="CommandTypeId" />
+      </end2>
+    </association>
+    <association name="Device_InstantValue" cardinality="OneToMany" p1:Guid="632b1708-306c-4570-94db-1384acc6f9e0">
+      <end1 multiplicity="One" name="Device" class="InstantValue" relation-class="Device" constrained="True" lazy="False" p1:Guid="af1975ea-9eba-4500-ab08-c29c9cedf320">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="InstantValues" class="Device" relation-class="InstantValue" lazy="False" p1:Guid="74ad2b67-73d8-4f9b-aa19-795b267b8b8d">
+        <property name="DeviceId" />
+      </end2>
+    </association>
+    <association name="Device_Channel" cardinality="OneToMany" p1:Guid="893a5041-d83f-4bf1-a9d4-f642d4d10bbe">
+      <end1 multiplicity="One" name="Device" class="Channel" relation-class="Device" constrained="True" lazy="False" p1:Guid="2b77015a-6a54-417d-8153-a28055f2fc4c">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Channels" class="Device" relation-class="Channel" lazy="False" p1:Guid="8d279999-4ea7-405b-b704-3494f7269ce6">
+        <property name="DeviceId" />
+      </end2>
+    </association>
+    <association name="Channel_Consumption" cardinality="OneToMany" p1:Guid="3cc98cd2-afb4-416b-8c11-2c711f63ad57">
+      <end1 multiplicity="One" name="Channel" class="Consumption" relation-class="Channel" constrained="True" lazy="False" p1:Guid="b35291e6-cd16-49c1-8de1-164ff5680607">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Consumptions" class="Channel" relation-class="Consumption" lazy="False" p1:Guid="67ca87f5-7de3-4d72-a57a-15612c26ac08">
+        <property name="ChannelId" />
+      </end2>
+    </association>
+    <association name="Unit_Channel" cardinality="OneToMany" p1:Guid="5aa110e4-bdbd-4338-a578-4bab3acb4df4">
+      <end1 multiplicity="One" name="Unit" class="Channel" relation-class="Unit" constrained="True" lazy="False" p1:Guid="4af74987-a427-4ac8-8ed3-6cf3d95ced82">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Channels" class="Unit" relation-class="Channel" generate="False" lazy="False" p1:Guid="7478177f-eb82-4d5d-a632-d90c5d4a03cd">
+        <property name="UnitId" />
+      </end2>
+    </association>
+    <association name="Channel_Indication" cardinality="OneToMany" p1:Guid="4d21d269-135a-4b95-a7bb-8018e1b46746">
+      <end1 multiplicity="One" name="Channel" class="Indication" relation-class="Channel" constrained="True" lazy="False" p1:Guid="f705382b-7595-466b-ad53-fdf7c5746952">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Indications" class="Channel" relation-class="Indication" lazy="False" p1:Guid="58adc26f-5697-4157-9f6f-ab2acb63de1b">
+        <property name="ChannelId" />
+      </end2>
+    </association>
+    <association name="Channel_Resource" cardinality="OneToMany" p1:Guid="d8df6a54-25e1-45fb-9a21-e3bed0ba9760">
+      <end1 multiplicity="One" name="Channel" class="Resource" relation-class="Channel" constrained="True" lazy="False" p1:Guid="cc18200e-a83d-4e22-8e27-1e1f4b35d734">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Resources" class="Channel" relation-class="Resource" generate="False" lazy="False" p1:Guid="43455e13-f387-4da7-8ee1-0cc7d7c6ba3d">
+        <property name="ChannelId" />
+      </end2>
+    </association>
+    <association name="Channel_Calibration" cardinality="OneToMany" p1:Guid="8557a32c-9747-4be5-b7e3-fecc1c68db70">
+      <end1 multiplicity="One" name="Channel" class="Calibration" relation-class="Channel" constrained="True" lazy="False" p1:Guid="5e2fd4d5-10cf-4103-ade9-4661c9602b85">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Calibrations" class="Channel" relation-class="Calibration" lazy="False" p1:Guid="90326e24-3282-49da-a1e3-7a9145d00a7b">
+        <property name="ChannelId" />
+      </end2>
+    </association>
+    <association name="Unit_Calibration" cardinality="OneToMany" p1:Guid="cbe2346a-cfb9-4250-8720-9f3013fda739">
+      <end1 multiplicity="One" name="Unit" class="Calibration" relation-class="Unit" constrained="True" lazy="False" p1:Guid="f08bd1ed-ba58-4abd-ad46-74474a85526f">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Calibrations" class="Unit" relation-class="Calibration" generate="False" lazy="False" p1:Guid="8e69745e-d3c5-49e3-9de8-3cff97ba1599">
+        <property name="UnitId" />
+      </end2>
+    </association>
+    <association name="Unit_InstantValue" cardinality="OneToMany" p1:Guid="5a1e90aa-057f-4be8-9466-878407657c47">
+      <end1 multiplicity="One" name="Unit" class="InstantValue" relation-class="Unit" constrained="True" lazy="False" p1:Guid="087445ad-6b40-451e-b466-5bdfb74be095">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="InstantValues" class="Unit" relation-class="InstantValue" generate="False" lazy="False" p1:Guid="d2273436-9063-464e-9974-5087c96e7004">
+        <property name="UnitId" />
+      </end2>
+    </association>
+    <association name="ReportType_ReportVersion" cardinality="OneToMany" p1:Guid="c0fc756e-e5a9-4576-ac13-643ef375886c">
+      <end1 multiplicity="One" name="ReportType" class="ReportVersion" relation-class="ReportType" constrained="True" lazy="False" p1:Guid="f5fc7d85-9373-4859-ad85-f782dc4bd272">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="ReportVersions" class="ReportType" relation-class="ReportVersion" generate="False" lazy="False" p1:Guid="824cb7ff-769b-44e4-b291-05b261e2f1c2">
+        <property name="ReportTypeId" />
+      </end2>
+    </association>
+    <association name="ReportVersion_Report" cardinality="OneToMany" p1:Guid="14c580b7-37d1-471f-a523-e2cdfb633aaa">
+      <end1 multiplicity="One" name="ReportVersion" class="Report" relation-class="ReportVersion" constrained="True" lazy="False" p1:Guid="288c5e3e-2df3-4075-af59-8d77677cd832">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Reports" class="ReportVersion" relation-class="Report" generate="False" lazy="False" p1:Guid="770cb339-4408-4e2a-868b-f461160dd9a7">
+        <property name="ReportVersionId" />
+      </end2>
+    </association>
+    <association name="Сontractor_Report" cardinality="OneToMany" p1:Guid="c149e85e-36e9-429b-a68c-158409ffa7fb">
+      <end1 multiplicity="One" name="Creator" class="Report" relation-class="Сontractor" constrained="True" lazy="False" p1:Guid="fde8e3d6-b39b-4527-ae59-ee76a3a5b43d">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Reports" class="Сontractor" relation-class="Report" lazy="False" p1:Guid="b27ecb6e-0ba0-421a-b4b9-a8b43d9ca27b">
+        <property name="CreatorId" />
+      </end2>
+    </association>
+    <association name="ReportFile_Report" cardinality="OneToMany" p1:Guid="0637103d-9d3f-4f8f-af4c-71affad92a60">
+      <end1 multiplicity="One" name="ReportFile" class="Report" relation-class="ReportFile" constrained="True" lazy="False" p1:Guid="61e5a7db-cb14-42f2-9208-9f63adc02a0b">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Reports" class="ReportFile" relation-class="Report" generate="False" lazy="False" p1:Guid="a40f4f27-17dc-4dbf-b7c5-9acf89e3a4b0">
+        <property name="ReportFileId" />
+      </end2>
+    </association>
+  </associations>
+</efcore>

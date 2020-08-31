@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "LuchIntegrationEF.SyncService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Debug"
+      },
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5002;"
+    }
+  }
+}

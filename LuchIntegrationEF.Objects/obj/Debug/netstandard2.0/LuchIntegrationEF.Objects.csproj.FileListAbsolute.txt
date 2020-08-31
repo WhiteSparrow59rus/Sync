@@ -1,0 +1,10 @@
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\bin\Debug\netstandard2.0\LuchIntegrationEF.Objects.dll.config
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\bin\Debug\netstandard2.0\LuchIntegrationEF.Objects.deps.json
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\bin\Debug\netstandard2.0\LuchIntegrationEF.Objects.dll
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\bin\Debug\netstandard2.0\LuchIntegrationEF.Objects.pdb
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\obj\Debug\netstandard2.0\LuchIntegrationEF.Objects.csprojAssemblyReference.cache
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\obj\Debug\netstandard2.0\LuchIntegrationEF.Objects.AssemblyInfoInputs.cache
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\obj\Debug\netstandard2.0\LuchIntegrationEF.Objects.AssemblyInfo.cs
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\obj\Debug\netstandard2.0\LuchIntegrationEF.Objects.csproj.CoreCompileInputs.cache
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\obj\Debug\netstandard2.0\LuchIntegrationEF.Objects.dll
+C:\Source\Repos\Git\Sync\LuchIntegrationEF.Objects\obj\Debug\netstandard2.0\LuchIntegrationEF.Objects.pdb

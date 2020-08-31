@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuchIntegrationEF.SyncService", "LuchIntegrationEF.SyncService\LuchIntegrationEF.SyncService.csproj", "{D40B1A50-4517-4548-BD62-82425A739C12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuchIntegrationEF.Objects", "LuchIntegrationEF.Objects\LuchIntegrationEF.Objects.csproj", "{2F9AFE80-3FEC-4CB9-B533-2DA3B93D41CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D40B1A50-4517-4548-BD62-82425A739C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40B1A50-4517-4548-BD62-82425A739C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40B1A50-4517-4548-BD62-82425A739C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40B1A50-4517-4548-BD62-82425A739C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F9AFE80-3FEC-4CB9-B533-2DA3B93D41CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F9AFE80-3FEC-4CB9-B533-2DA3B93D41CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F9AFE80-3FEC-4CB9-B533-2DA3B93D41CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F9AFE80-3FEC-4CB9-B533-2DA3B93D41CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF1F67E1-1E54-48D2-BFAB-F63340006668}
+	EndGlobalSection
+EndGlobal
